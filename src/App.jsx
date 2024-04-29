@@ -11,7 +11,7 @@ function App() {
     
     <div className='App'>
       <Navbar/>
-      <h2>Movies Store</h2>
+      
       <Outlet/>
     </div>
     </>
