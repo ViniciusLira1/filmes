@@ -2,7 +2,7 @@ import React from "react";
 import { useState,useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import './MoviesGrid.css';
-
+import Navbar from "../components/Navbar";
 
 const moviesURL=import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -27,6 +27,9 @@ const Home = () =>{
   }, [])
        
     return  (
+      <>
+     <Navbar></Navbar>
+    
     <div className="container">
         <h2 className="title">Best Movies</h2>
         <div className="movies-container">
@@ -38,6 +41,8 @@ const Home = () =>{
         </div>
        
     </div>
+    
+    </>
     );
 };
 

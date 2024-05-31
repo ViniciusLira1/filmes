@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom';
-import './App.css'
+
 import Navbar from './components/Navbar';
+import Login from './pages/Login';
 
 function App() {
  
@@ -10,9 +11,7 @@ function App() {
     <>
     
     <div className='App'>
-      <Navbar/>
-      
-      <Outlet/>
+    <Login/>
     </div>
     </>
   );

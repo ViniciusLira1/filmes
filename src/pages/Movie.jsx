@@ -12,6 +12,7 @@ import {
 import MovieCard from "../components/MovieCard";
 import './MoviesGrid.css';
 import './Movie.css';
+import Navbar from "../components/Navbar";
 
 
 
@@ -39,6 +40,8 @@ const Movie = () =>{
         getMovie(movieUrl)
     }, [])
     return (
+        <>
+        <Navbar></Navbar>
         <div className="movie-page">
          {movie && (
          <>
@@ -70,6 +73,7 @@ const Movie = () =>{
         </div>
          </>)}
         </div>
+        </>
     )
 }
 

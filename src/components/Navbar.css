@@ -1,42 +1,74 @@
-#navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+#navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     padding: 1rem 2rem;
     background-color: #212529;
-}
-
-
-
-#navbar h2 a{
+    color: #fff;
+   
+  }
+  
+  #navbar h2 a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: #fff;
-
-}
-
-#navbar form{
-    display: flex;
+    text-decoration: none; 
+ }
+  
+  #navbar form {
+    justify-content: center;
+    display:flex;
+    align-items: center;
     gap: 0.5rem;
-    border: none;
-}
+    flex-direction: row;
+   
 
-#navbar form button{
+    
+  }
+  #navbar input{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    
+  }
+  
+  #navbar form button {
+   
     background-color: #F7D354;
     border: 2px solid #F7D354;
     border-radius: 4px;
     color: #000;
     padding: .3rem;
     font-size: 1.3rem;
-    display: flex;
-    align-items: center;
     cursor: pointer;
     transition: 0.4s;
-
-}
-
-#navbar form button:hover{
+    margin-left: 0.2rem;
+  }
+  
+  #navbar form button:hover {
     background-color: transparent;
     color: #f7d354;
-}
+  }
+  
+ 
+ 
+
+  .botao-nav {
+    background-color: #F7D354;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 0.5rem; /* Espaçamento entre os botões */
+    color: #000;
+  }
+  
+  .botao-nav:hover {
+    background-color: transparent;
+    color: #f7d354;
+  }

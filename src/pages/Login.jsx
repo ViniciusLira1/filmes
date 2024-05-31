@@ -1,50 +1,59 @@
-import { useForm } from "react-hook-form";
-import {z} from 'zod';
-import { zodResolver } from "@hookform/resolvers/zod";
-import estilos from './Perfil.module.css'
- 
-const schemaPerfil = z.object({
-    email: z.string()
-    .email(),
-    senha: z.string()
-        .min(8, 'Informe 8 caracteres')
-        .max(8,'maximo 8 caracteres')
-       
-    })
- 
- 
-export default function Login(){
- 
-const{
-    register,
-    handleSubmit,
-    formState:{errors}
-}=useForm({
-    resolver:zodResolver(schemaPerfil)
-})
-function obterDadosFormulario(data){
-console.log(`Email: ${data.email}`)
-console.log(`Senha: ${data.senha}`)
-}
- 
-return(
-    <div className={estilos.conteiner}>
-        <p>Login</p>
-        <form className={estilos.formulario} onSubmit ={handleSubmit(obterDadosFormulario)}> 
-            <input  {...register('email')} className={estilos.campo} placeholder="Email"/>
-            {errors.email &&(
-                <p className={estilos.mensagem}>{errors.email.message}</p>
-            )}
-            <input {...register('senha')} className={estilos.campo} placeholder="Senha"/>
-            {errors.senha &&(
-                <p className={estilos.mensagem}>{errors.senha.message}</p>
-            )}
-            <button className={estilos.botao}>Confirmar</button>
- 
+
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
+
+
+const schema = z.object({
+  email: z.string().email({ message: "Endereço de email inválido" }),
+  password: z.string().min(6, { message: "A senha deve ter no mínimo 6 caracteres" }),
+});
+
+const Login = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(schema)
+  });
+  const navigate = useNavigate();
+
+  const onSubmit = data => {
+    console.log(data);
+   
+    navigate('/home');
+  };
+
+  return (
+    <div className="login-container">
+      <div className="login-box">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="input-group">
+            <label htmlFor="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              placeholder="Digite seu email" 
+              {...register('email')} 
+            />
+            {errors.email && <p className="error-message">{errors.email.message}</p>}
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Senha</label>
+            <input 
+              type="password" 
+              id="password" 
+              placeholder="Digite sua senha" 
+              {...register('password')} 
+            />
+            {errors.password && <p className="error-message">{errors.password.message}</p>}
+          </div>
+          <button type="submit">Entrar</button>
         </form>
- 
+      </div>
     </div>
-)
- 
- 
-}
+  );
+};
+
+export default Login;

@@ -6,7 +6,7 @@ import './index.css'
 import Home from './pages/Home.jsx'
 import Movie from './pages/Movie.jsx'
 import Search from './pages/Search.jsx'
-import Perfil from './pages/Perfil.jsx'
+import Profile from './pages/Profile.jsx'
 import Login from './pages/Login.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,14 +14,17 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
     <Routes>
     <Route element={<App/>}>
-          <Route path="/" element={<Home/>}/>
-          <Route path="movie/:id" element={<Movie/>}/>
-          <Route path="search" element={<Search/>}/>
+          <Route path="/" element={<Login/>}/>
+    
         
           
     </Route>
-    <Route path="perfil" element={<Perfil/>}/>
+    <Route path="perfil" element={<Profile/>}/>
     <Route path="Login" element={<Login/>}/>
+    <Route path="/home" element={<Home/>}/>
+    <Route path="movie/:id" element={<Movie/>}/>
+    <Route path="search" element={<Search/>}/>
+        
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,
